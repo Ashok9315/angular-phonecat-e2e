@@ -14,14 +14,14 @@ var Q = require('q');
 
 function fileExists(filePath)
 {
-    try
-    {
+    //try
+    //{
         return fs.statSync(filePath).isFile();
-    }
-    catch (err)
+    //}
+   // catch (err)
     {
-        return false;
-    }
+       // return false;
+    //}
 }
 
 function logToConsoleAndResolve(command, deferred) {
