@@ -126,7 +126,22 @@ exports.config = {
         global.utilsDir = basedir + '/utilities';
         global.pagesDir = basedir + '/pages';
         global.outputDir = getOutputDir();
+        console.log("---------------------Added SPEC to the BRANCH --------------------------------");
+        var proxy = new Proxy();
+        proxy.port = 8087;
+        console.log("- proxy: ", proxy);
 
+        return Q.ninvoke(proxy, 'start', 8087).then(function (data) {
+            console.log('- Started proxy with data - ', data);
+            console.log('\t & arguments', arguments);
+            browser.params.proxy = proxy;
+            browser.params.proxyData = data;
+            return data;
+            browser.param.Alttxt.setData = spec.Prop();
+            browser.param.class.object.prop.setText = spec.propName.gettxt();
+        }, function (err) {
+            console.log('- Proxy start failed - ', err);
+        });
         console.log("<---------------------------------------> ");
         console.log("-> basedir: " + baseDir);
         console.log("-> pagesdir: " + global.pagesDir);
